@@ -308,7 +308,7 @@ exports.likeSauce = (req, res, next) => {
       } else {
         voteValue = 0;
       }
-      // this comparator will detetmin the vote of user with a vote action 
+      // this comparator will determin the vote of user with a vote action 
       // if the user has yet to vote the default will be positive.
       if (voteValue === 0 && req.body.like === 1) {
         // add vote positive to likes
@@ -335,11 +335,11 @@ exports.likeSauce = (req, res, next) => {
       } else if (voteValue === 0 && req.body.like === -1) {
         // add one vote to dislikes 
         sauce.dislikes += 1;
-        // the table usersDisliked will recevie user id
+        // the table usersDisliked will receive user id
         sauce.usersDisliked.push(voter);
         // for all other scenarios , not coming with index  then error message of illegal action 
       } else {
-        console.log("vote attemp is  illegal");
+        const message = console.log("vote attempt is illegal");
       }
       // update the sauce
       Sauce.updateOne(
@@ -352,7 +352,7 @@ exports.likeSauce = (req, res, next) => {
         }
       )
         // return a promise with status 201 Created and json  message
-        .then(() => res.status(201).json({ message: "you have votedr" }))
+        .then(() => res.status(201).json({ message: "you have voted" }))
         // in case of errers  status 400 and  json error
         .catch((error) => {
           if (error) {
