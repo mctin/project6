@@ -11,7 +11,7 @@ if (passwordSchema.validate(req.body.password)){
       .status(400)
       .json({
         message:
-          "le mot de passe n'est pas conforme, il doit contenir entre 6 et 16 caractères,au moins 1 chiffre et 1 majuscule",
+          "le mot de passe n'est pas conforme, il doit contenir entre 8 et 20 caractères,au moins 1 chiffre et 1 majuscule",
       });
 }
 };

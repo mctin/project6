@@ -78,7 +78,7 @@ exports.createSauce = (req, res, next) => {
       .then(() =>
         res
           .status(201)
-          .json({ message: "POST recorded sauce (FR)sauce enregistrée !" })
+          .json({ message: "POST recorded sauce !" })
       )
       // or in case of error send a status 400 and json error
       .catch((error) => res.status(400).json({ error }));
@@ -98,7 +98,7 @@ exports.createSauce = (req, res, next) => {
     // and again need to add heat value
     if (sauce.heat < 0 || sauce.heat > 10) {
       sauce.heat = 0;
-      console.log("heat value not valide, heat values added");
+      console.log("heat value not valid, heat values added");
     }
     // save data
     sauce
@@ -203,7 +203,7 @@ exports.modifySauce = (req, res, next) => {
       // if there is an issue with heat value, the value stays at the same level as before search
       if (sauceBot.heat < 0 || sauceBot.heat > 10) {
         sauceBot.heat = heatAvant;
-        console.log("heat value is not valide, old vlaue is retained");
+        console.log("heat value is not valid, old vlaue is retained");
       }
       //  to modify a sauce in the database, the first argument is the object ro modify  which corresponds to object id and the id of search 
       // the second argument is the new version the objet which contains the sauce which has in the body id of search and _id and its params
