@@ -1,7 +1,7 @@
 //mongodb+srv://mctin:<password>@cluster0.9odlabl.mongodb.net/?retryWrites=true&w=majority//
 const express = require('express');
 const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
+const rateLimit = require('express-rate-limit')
 //const bobyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -10,6 +10,7 @@ const path = require('path');
 const sauceRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
 const app = express();
+
 
 const limiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
@@ -29,7 +30,7 @@ mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGOD
     useUnifiedTopology: true })
 .then(() => console.log('sucessfully connected to mongodb atlas'))
 .catch ((error) =>
-    console.log('unable to connect to mongo'));
+    console.log('unable to connect to mongo'))
 
 
 app.use((req, res, next) => {
@@ -37,7 +38,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
-    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+    // res.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
   });
 
 //app.use(bobyParser.json());
