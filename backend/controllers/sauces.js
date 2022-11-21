@@ -122,7 +122,7 @@ exports.modifySauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     // if the sauce exists
     .then((sauce) => {
-      // this variable permits to reduce the code de traverser le scope
+      // this variable permits to reduce the code
       var sauceBot;
       //this const is the  value of  heat of the sauce before modification, used if the new heat is a value that is not accepted
       const heatAvant = sauce.heat;
